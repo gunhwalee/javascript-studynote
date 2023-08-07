@@ -2,8 +2,8 @@ import { useRef } from "react";
 import userStore from "../zustand/store";
 
 const Hello = () => {
-  const [firstName, updateFirstName, lastName, updateLastName] =
-    userStore(state => [state.firstName, state.updateFirstName, state.lastName, state.updateLastName]);
+  const [firstName, updateFirstName, lastName, updateLastName, reset] =
+    userStore(state => [state.firstName, state.updateFirstName, state.lastName, state.updateLastName, state.reset]);
   const nameRef = useRef<HTMLInputElement>();
 
   const inputHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -33,6 +33,7 @@ const Hello = () => {
         <button onClick={clickHandler}>last name</button>
       </label>
       <p>Hello, <strong>{firstName} {lastName}!</strong></p>
+      <button onClick={reset}>RESET!!</button>
     </>
   );
 }

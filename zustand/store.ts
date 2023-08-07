@@ -8,13 +8,19 @@ type UserState = {
 type Action = {
   updateFirstName: (firstName: UserState["firstName"]) => void
   updateLastName: (lastName: UserState["lastName"]) => void
+  reset: () => void
 }
 
-const userStore = create<UserState & Action>((set) => ({
+const initialState: UserState = {
   firstName: "",
-  lastName: "",
+  lastName: ""
+};
+
+const userStore = create<UserState & Action>((set) => ({
+  ...initialState,
   updateFirstName: firstName => set(() => ({ firstName })),
   updateLastName: lastName => set(() => ({ lastName })),
+  reset: () => set(initialState)
 }));
 
 export default userStore;
