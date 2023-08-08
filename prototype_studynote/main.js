@@ -34,3 +34,16 @@ console.log(iu.__proto__.getName.call(iu));
 
 // prototype chain
 console.dir({ a: 1 });
+
+var bob = {
+  name: "bob",
+  age: 31,
+};
+
+console.log(bob.__proto__ === Object.prototype);
+console.log(bob.constructor === Object);
+console.log(bob.__proto__.constructor === Object.prototype.constructor);
+console.log(Object.prototype.constructor === Object);
+console.log(Object.__proto__ === Function.prototype);
+console.log(Function.prototype.__proto__ === Object.prototype);
+console.log(Function.constructor);
